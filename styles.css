@@ -65,19 +65,30 @@ h1 {
     height: auto;
 }
 
+/* grid auto flow dense fills empty holes */
 .images-album{
     margin: 2% 8%;
     background-color: #FF7860;
     gap: 1rem;
     display: grid;
     border: 20px solid #FF7860;
-    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    grid-template-rows: (10,200px);
+    grid-auto-flow: dense;
+    /* grid-auto-rows: 160px; */
 }
+
+
+/* needs object fit to make image fit correctly no matter how many grids being displayed
+    without it makes image looked streched and not nice
+*/
 
 #album img {
     width: 100%;
     height: 100%;
+    object-fit: cover; 
     transition: all 500ms;
+
 }
 
 #album img:hover {
@@ -89,6 +100,12 @@ h1 {
 }
 
 @media  screen and (min-width:670px){
+
+    .images-album > img:nth-child(4n) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    
     .wide-image {
         grid-column: span 2/ auto;
     
