@@ -6,21 +6,25 @@ body {
   height: 500px;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
   padding: 7% 10% 0% 5%;
   text-align: unset;
 }
 
 section:nth-child(odd) {
   background-color: #fdd09f;
+  position: relative;
   color: white;
-  height: 400px;
   text-align: center;
+  z-index: 20;
 }
 section:nth-child(even) {
   background-color: white;
+  position: relative;
   color: #fdd09f;
   height: 400px;
   text-align: center;
+  z-index: 20;
 }
 
 .large-text {
@@ -33,8 +37,21 @@ section:nth-child(even) {
   font-family: "Sen", sans-serif;
 }
 
-.header img {
+#header img {
   height: auto;
+  object-fit: contain;
+  align-self: center;
+  position: relative;
+  margin-left: 15%;
+  flex-shrink: 1;
+  flex-grow: 1;
+  bottom: 10px;
+}
+
+.header-text {
+  flex-basis: 550px;
+  flex-grow: 0;
+  flex-shrink: 2;
 }
 
 body {
@@ -48,6 +65,8 @@ h1 {
 /* about me section */
 
 .about-me {
+  position: relative;
+  z-index: 30;
   height: 400px;
   text-align: center;
 }
